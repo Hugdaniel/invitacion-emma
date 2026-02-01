@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,body {
+  font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.escena {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+
+}
+
+.fondo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.fondo-dia {
+  background-image: url('/recursos/castillo\ dia.jpg');
+}
+
+.fondo-tarde {
+  background-image: url('/recursos/castillo\ atardecer.jpg');
+}
+
+.fondo-noche {
+  background-image: url('/recursos/castillo\ noche.jpg');
+}
+
+.fondo-noche-overlay {
+  background-image: url('/recursos/castillo\ noche.jpg');
+  opacity: 0;
+  transition: opacity 1s ease;
+  z-index: 2;
+}
+
+.contenido {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.contenido-dia {
+  justify-content: flex-start;
+  padding-top: 8vh;
+}
+
+#escena-tarde {
+  height: 300vh;
+}
+
+
+
+
+.titulo-img {
+  width: 92%;
+  max-width: 720px;
+}
+
+.sticky-container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.galeria-horizontal {
+  display: flex;
+  height: 100%;
+  gap: 40px;
+  padding-left: 20vw;
+  width: max-content;
+}
+
+.foto {
+  min-width: 100vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.foto img {
+  width: 60%;
+  max-width: 400px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.contenido-noche {
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  color: white;
+}
+
+.datos-evento{
+    margin-top: 15vh;
+}
+
+.datos-evento h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.datos-evento p {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+#btn-revelar {
+  margin-top: 20px;
+  padding: 12px 30px;
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#btn-revelar:hover {
+  background: rgb(255, 214, 246);
+  color: rgb(253, 114, 235);
+}
+
+.revelacion {
+  margin-top: 30px;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: 0.8s ease;
+}
+.revelacion.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.revelacion img {
+  max-width: 80%;
+  max-height: 30vh;
+  height: auto;
+}
+.mensaje-final {
+  margin-top: 15px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+
+

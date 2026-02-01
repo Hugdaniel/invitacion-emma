@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El magico cumpleaños de Emma</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="/recursos/vision logo.png" type="image/x-icon">
+</head>
+<body>
+
+    <!-- ESCENA 1 - DÍA -->
+  <section id="escena-dia" class="escena">
+    
+    <div class="fondo fondo-dia"></div>
+    
+    <div class="contenido contenido-dia">
+      <img src="/recursos/tipograf.png" alt="El mágico cumpleaños de Emma" class="titulo-img">
+    </div>
+
+  </section>
+
+
+
+  <!-- ESCENA 2 - TARDE (STICKY + GALERÍA HORIZONTAL) -->
+  <section id="escena-tarde" class="escena">
+
+    <!-- Fondos superpuestos para transición -->
+    <div class="fondo fondo-tarde"></div>
+    <div class="fondo fondo-noche-overlay"></div>
+
+    <div class="sticky-container">
+
+      <div class="galeria-horizontal">
+
+        <div class="foto">
+          <img src="/recursos/emma de bebe.jpeg" alt="Emma bebé">
+        </div>
+
+        <div class="foto">
+          <img src="/recursos/emma bebe.jpeg" alt="Emma creciendo">
+        </div>
+
+        <div class="foto">
+          <img src="/recursos/tercer año.jpeg" alt="Emma sonriendo">
+        </div>
+
+        <div class="foto">
+          <img src="/recursos/emma actual.jpeg" alt="Emma actualmente">
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ESCENA 3 - NOCHE -->
+  <section id="escena-noche" class="escena">
+
+    <div class="fondo fondo-noche"></div>
+
+    <div class="contenido contenido-noche">
+
+      <div class="datos-evento">
+        <h2>Te esperamos</h2>
+        <p><strong>Día:</strong> 15 de Marzo</p>
+        <p><strong>Hora:</strong> 17:00 hs</p>
+        <p><strong>Lugar:</strong> Salón Encantado</p>
+      </div>
+
+      <button id="btn-revelar">Revelar a la princesa</button>
+
+      <div id="revelacion-final" class="revelacion">
+        <img src="/recursos/emma revelacion.png" alt="Emma princesa">
+        <p class="mensaje-final">Te esperamos en nuestro reino</p>
+      </div>
+
+    </div>
+
+  </section>
+
+    <script src="/index.js"></script>
+</body>
+</html>
