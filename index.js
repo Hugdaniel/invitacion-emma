@@ -3,11 +3,10 @@
 
 
 
-
 /*
 document.addEventListener("DOMContentLoaded", () => {
 
-  const audio = document.getElementById("sonidoTitulo");
+  // const audio = document.getElementById("sonidoTitulo");
    
 
 
@@ -138,22 +137,23 @@ btnIzquierda.addEventListener("click", () => {
 // Revelacion invitacion
 const btnRevelar = document.getElementById("btn-revelar");
 const revelacion = document.getElementById("revelacion-final");
-const audioMagico = document.getElementById("sonidoTitulo");
 
 btnRevelar.addEventListener("click", () => {
+
+  audio.currentTime = 0;
+  audio.play().catch(error => {
+    console.log("El navegador bloqueó el audio hasta interacción.");
+  });
 
   btnRevelar.style.opacity = "0";
   btnRevelar.style.pointerEvents = "none";
 
   setTimeout(() => {
-    btnRevelar.style.display = "none";
-  }, 500);
+    revelacion.classList.add("activa");
+  }, 300);
 
-  revelacion.classList.add("visible");
-
-  audioMagico.currentTime = 0;
-  audioMagico.play();
 });
+
 
 // Particulas
 const canvases = document.querySelectorAll(".particulas");
