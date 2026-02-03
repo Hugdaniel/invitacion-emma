@@ -9,8 +9,21 @@
 </head>
 <body>
 
+  <div id="intro-overlay">
+  <p>Tocá la pantalla para comenzar</p>
+</div>
+
+
     <!-- ESCENA 1 - DÍA -->
   <section id="escena-dia" class="escena">
+
+    <canvas class="particulas"></canvas>
+
+
+    <div class="flecha-scroll">
+    ↓
+    </div>
+
     
     <div class="fondo fondo-dia"></div>
     
@@ -20,45 +33,59 @@
 
   </section>
 
+<audio id="sonidoTitulo" preload="auto">
+  <source src="/recursos/sonido-magico.mp3" type="audio/mpeg">
+</audio>
+
 
 
   <!-- ESCENA 2 - TARDE (STICKY + GALERÍA HORIZONTAL) -->
   <section id="escena-tarde" class="escena">
+    <canvas class="particulas"></canvas>
 
-    <!-- Fondos superpuestos para transición -->
-    <div class="fondo fondo-tarde"></div>
-    <div class="fondo fondo-noche-overlay"></div>
 
-    <div class="sticky-container">
+  <div class="fondo fondo-tarde"></div>
 
-      <div class="galeria-horizontal">
+  <div class="galeria-container">
 
-        <div class="foto">
-          <img src="/recursos/emma de bebe.jpeg" alt="Emma bebé">
-        </div>
+    <button class="flecha-izquierda">&#10094;</button>
 
-        <div class="foto">
-          <img src="/recursos/emma bebe.jpeg" alt="Emma creciendo">
-        </div>
+    <div class="galeria">
 
-        <div class="foto">
-          <img src="/recursos/tercer año.jpeg" alt="Emma sonriendo">
-        </div>
+      <div class="slide activa">
+        <img src="/recursos/emma de bebe.jpeg" alt="Emma bebé">
+        <p class="caption">Mis primeros días</p>
+      </div>
 
-        <div class="foto">
-          <img src="/recursos/emma actual.jpeg" alt="Emma actualmente">
-        </div>
+      <div class="slide">
+        <img src="/recursos/emma bebe.jpeg" alt="Emma 1 año">
+        <p class="caption">Mi primer añito</p>
+      </div>
 
+      <div class="slide">
+        <img src="/recursos/tercer año.jpeg" alt="Emma 3 años">
+        <p class="caption">Creciendo feliz</p>
+      </div>
+
+      <div class="slide">
+        <img src="/recursos/emma actual.jpeg" alt="Emma 5 años">
+        <p class="caption">Hoy cumplo 5 años</p>
       </div>
 
     </div>
 
-  </section>
+    <button class="flecha-derecha">&#10095;</button>
+
+  </div>
+
+</section>
 
 
 
   <!-- ESCENA 3 - NOCHE -->
   <section id="escena-noche" class="escena">
+    <canvas class="particulas"></canvas>
+
 
     <div class="fondo fondo-noche"></div>
 
@@ -74,7 +101,7 @@
       <button id="btn-revelar">Revelar a la princesa</button>
 
       <div id="revelacion-final" class="revelacion">
-        <img src="/recursos/emma revelacion.png" alt="Emma princesa">
+        <img src="/recursos/emma princes.png" alt="Emma princesa">
         <p class="mensaje-final">Te esperamos en nuestro reino</p>
       </div>
 

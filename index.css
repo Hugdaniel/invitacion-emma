@@ -10,13 +10,62 @@ html,body {
   max-width: 100%;
 }
 
+#intro-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  font-family: sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.8s ease;
+}
+
+#intro-overlay.oculto {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
 .escena {
   position: relative;
   width: 100%;
   height: 100vh;
   min-height: 100vh;
-
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
 }
+
+
+#escena-dia {
+  height: 180vh;
+}
+
+.flecha-scroll {
+  position: absolute;
+  top: 82vh;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  color: white;
+  animation: flotar 2s infinite;
+  opacity: 0.8;
+  z-index: 5;
+}
+
+@keyframes flotar {
+  0% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 10px); }
+  100% { transform: translate(-50%, 0); }
+}
+
+
 
 .fondo {
   position: absolute;
@@ -61,50 +110,127 @@ html,body {
 
 .contenido-dia {
   justify-content: flex-start;
-  padding-top: 8vh;
+  padding-top: 10vh;
 }
 
 #escena-tarde {
-  height: 300vh;
+  height: 130vh;
+  position: sticky;
+  top: 0;
 }
 
-
+#escena-tarde .fondo{
+  filter: blur(3px);
+  transform: scale(1.05);
+}
 
 
 .titulo-img {
-  width: 92%;
-  max-width: 720px;
+  width: 98%;
+  max-width: 850px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
 }
 
-.sticky-container {
-  position: sticky;
-  top: 0;
+.titulo.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* CONTENEDOR GENERAL */
+.galeria-container {
+  position: relative;
   height: 100vh;
-  overflow: hidden;
-}
-
-.galeria-horizontal {
   display: flex;
-  height: 100%;
-  gap: 40px;
-  padding-left: 20vw;
-  width: max-content;
-}
-
-.foto {
-  min-width: 100vw;
-  height: 100%;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  z-index: 4;
 }
 
-.foto img {
-  width: 60%;
+/* CONTENEDOR DE SLIDES */
+.galeria {
+  position: relative;
+  width: 100%;
   max-width: 400px;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+/* CADA SLIDE */
+.slide {
+  position: absolute;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out, filter 2.5s ease-in-out;
+
+}
+
+/* IMAGEN */
+.slide img {
+  width: 80vw;
+  max-width: 360px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 20px;
+  filter: grayscale(100%);
+  transition: filter 2.5s ease-in-out;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+
+}
+
+/* TEXTO */
+.caption {
+  margin-top: 18px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  background-color: crimson;
+  border-radius: 18px;
+  padding: 6px 12px;
+  color: white;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* SLIDE ACTIVO */
+.slide.activa {
+  opacity: 1;
+}
+
+.slide.activa img {
+  filter: grayscale(0%);
+}
+
+.slide.activa .caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.flecha-izquierda{
+  margin-left: 10px;
+  font-size: 2rem;
+  background-color: transparent;
+  border: none;
+  color: rgb(255, 255, 255);
+}
+.flecha-derecha{
+  margin-right: 10px;
+  font-size: 2rem;
+  background-color: transparent;
+  border: none;
+  color: rgb(255, 255, 255);
+}
+
+
+
+
+
+
+
 
 .contenido-noche {
   justify-content: center;
@@ -148,22 +274,44 @@ html,body {
   opacity: 0;
   transform: scale(0.9);
   transition: 0.8s ease;
+  pointer-events: none;
 }
 .revelacion.visible {
   opacity: 1;
   transform: scale(1);
+  pointer-events: auto;
 }
 
 .revelacion img {
-  max-width: 80%;
-  max-height: 30vh;
+  max-width: 90%;
+  max-height: 60vh;
   height: auto;
+  
+  
 }
 .mensaje-final {
   margin-top: 15px;
   font-size: 1.5rem;
   font-weight: bold;
 }
+
+.escena.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* particulas */
+.particulas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 50; /* arriba del fondo pero debajo del contenido si querés */
+}
+
+
 
 
 
